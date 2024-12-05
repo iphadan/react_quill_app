@@ -1,29 +1,4 @@
 
-// import React from 'react';
-// import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-// import '@react-pdf-viewer/core/lib/styles/index.css';
-// import '@react-pdf-viewer/default-layout/lib/styles/index.css';
-// import { pdfjs } from 'react-pdf';
-// import { Viewer,Worker } from '@react-pdf-viewer/core';
-// import '@react-pdf-viewer/core/lib/styles/index.css'; // Ensure the CSS is also included
-// import pdfjsWorker from "pdfjs-dist/build/pdf.worker.entry";
-
-// pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
-// function PdfViewer({ file }) {
-//   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
-//   return (
-//     <div>
-//       <Worker>
-//         <Viewer fileUrl={file} plugins={[defaultLayoutPluginInstance]} />
-//       </Worker>
-//     </div>
-//   );
-// }
-
-// export default PdfViewer;
-
-
 import React, { useState, useRef } from 'react';
 import { Viewer, Worker } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
@@ -86,13 +61,12 @@ function PdfEditor({ file }) {
         const elements = doc.body.children;
     
         let currentAttributes = {}; // Holds attributes for the current block of text
-    let i =0;
         // Helper function to process each node
         const processNode = (node) => {
            
             if (node.nodeType === Node.ELEMENT_NODE) {      
-                if (node.classList.length) currentAttributes.size = node.classList.length === 1 ? node.classList.value : node.classList[0];                 
-                if (node.classList.length === 2) currentAttributes.fontFamily=node.classList[1];
+                if (node.classList.value[3] === 's') currentAttributes.size = node.classList.length === 1 ? node.classList.value : node.classList[0];                 
+                if (node.classList.value[3] === 'f' || node.classList.length === 2 ) currentAttributes.fontFamily= node.classList.length === 1 ? node.classList.value : node.classList[1];
                 if (node.style.backgroundColor) currentAttributes.background = node.style.backgroundColor;
                 if (node.style.color) currentAttributes.color = node.style.color;
                 if (node.nodeName === 'STRONG') currentAttributes.bold = true;
