@@ -90,14 +90,9 @@ function PdfEditor({ file }) {
         // Helper function to process each node
         const processNode = (node) => {
            
-            if (node.nodeType === Node.ELEMENT_NODE) {
-        //  let _class = node
-        //             console.log(JSON.stringify(_class))
-                    
-        //             console.log(_class)
-                
-                    // if (span.style.fontSize) currentAttributes.size = span.style.fontSize;                 
-                if (node.attributes.class) currentAttributes.fontFamily=node.attributes.class.nodeValue;
+            if (node.nodeType === Node.ELEMENT_NODE) {      
+                if (node.classList.length) currentAttributes.size = node.classList.length === 1 ? node.classList.value : node.classList[0];                 
+                if (node.classList.length === 2) currentAttributes.fontFamily=node.classList[1];
                 if (node.style.backgroundColor) currentAttributes.background = node.style.backgroundColor;
                 if (node.style.color) currentAttributes.color = node.style.color;
                 if (node.nodeName === 'STRONG') currentAttributes.bold = true;
@@ -176,25 +171,26 @@ function PdfEditor({ file }) {
         // }
         console.log(textBox);
     };
-const modules = {
+    const modules = {
         toolbar: [
             [{ font: [] }], // Font style
+            [{ size: [] }], // Text sizing
             [{ color: [] }, { background: [] }], // Text color and background color
             ['bold', 'italic', 'underline'], // Basic text styling
-            [{ align: [] }], // Alignment options
             ['clean'], // Clear formatting
         ],
     };
-
+    
     const formats = [
         'font',
+        'size', // Added size
         'color',
         'background',
         'bold',
         'italic',
         'underline',
-        'align',
     ];
+    
     return (
         <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
             {/* Add Text Box Button */}
@@ -202,7 +198,7 @@ const modules = {
                 onClick={toggleAddTextBoxMode}
                 style={{
                     position: 'absolute',
-                    top: '10px',
+                    top: '0px',
                     left: '220px',
                     zIndex: 15,
                     padding: '10px',
@@ -221,8 +217,8 @@ const modules = {
                 onClick={sendJsonPayload}
                 style={{
                     position: 'absolute',
-                    top: '50px',
-                    left: '220px',
+                    top: '0px',
+                    left: '370px',
                     zIndex: 15,
                     padding: '10px',
                     backgroundColor: 'blue',
