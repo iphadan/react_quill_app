@@ -92,10 +92,11 @@ function PdfEditor({ file }) {
            
             if (node.nodeType === Node.ELEMENT_NODE) {
          
-                    
-                    // if (span.style.backgroundColor) currentAttributes.background = span.style.backgroundColor;
+                    // console.log(JSON.stringify(node.attributes["0"]))
+                    // console.log(node.style.backgroundColor)
+                if (node.style.backgroundColor) currentAttributes.background = node.style.backgroundColor;
                     // if (span.style.fontSize) currentAttributes.size = span.style.fontSize;                 
-                // if (node.attributes.class) currentAttributes.font =node.attributes["class"];
+                // if (node.attributes.class) currentAttributes.font =node.attributes["class"];x
                 if (node.style.color) currentAttributes.color = node.style.color;
                 if (node.nodeName === 'STRONG') currentAttributes.bold = true;
                 if (node.nodeName === 'EM') currentAttributes.italic = true;
