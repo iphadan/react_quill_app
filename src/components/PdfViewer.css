@@ -1,0 +1,11 @@
+.mash-background {
+    margin: 0;
+    height: 10vh;
+    overflow: hidden;
+    background: 
+      repeating-linear-gradient(45deg, rgb(62, 61, 61), rgb(172, 170, 170) 10px, blue 10px, blue 20px),
+      repeating-linear-gradient(-45deg, green, green 10px, rgb(200, 200, 177) 10px, rgb(79, 79, 75) 20px);
+    background-blend-mode: screen;
+    background-size: 100% 100%;
+  }
+  
