@@ -297,7 +297,7 @@ setIsAddingTextBox(false)
                 style={{
                     position: 'absolute',
                     top: '0px',
-                    left: '220px',
+                    left: '120px',
                     zIndex: 15,
                     padding: '10px',
                     backgroundColor: isAddingTextBox ? 'red' : 'green',
@@ -316,7 +316,7 @@ setIsAddingTextBox(false)
                 style={{
                     position: 'absolute',
                     top: '50px',
-                    left: '220px',
+                    left: '120px',
                     zIndex: 15,
                     padding: '10px',
                     backgroundColor: 'blue',
@@ -388,14 +388,14 @@ setIsAddingTextBox(false)
                 style={{
                     position: 'absolute',
                     top: '50%',
-                    left: '20px',
+                    left: '100px',
                     zIndex: 15,
-                    padding: '10px',
-                    backgroundColor: 'green',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '5px',
+                    padding: '4px',
+                    backgroundColor: "rgb(26, 146, 112)",
+                  
                     cursor: 'pointer',
+                    transform: 'translate(24px, -50%)',
+
                 }}
             >
                   <GoToPreviousPage />
@@ -404,14 +404,13 @@ setIsAddingTextBox(false)
                 style={{
                     position: 'absolute',
                     top: '50%',
-                    right: '20px',
-                    zIndex: 15,
-                    padding: '10px',
-                    backgroundColor: 'green',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '5px',
+                    right: '150px',
+                    zIndex: 100,
+                    padding: '4px',
+                    backgroundColor: "rgb(26, 146, 112)",
+                   
                     cursor: 'pointer',
+                    transform: 'translate(24px, -50%)',
                 }}
             >
                   <GoToNextPageButton />
@@ -422,13 +421,11 @@ setIsAddingTextBox(false)
                 style={{
                     position: 'absolute',
                     top: '0%',
-                    right: '20px',
+                    right: '0px',
                     zIndex: 15,
-                    padding: '10px',
-                    backgroundColor: 'green',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '5px',
+                    padding: '7px',
+                    backgroundColor: "rgb(26, 146, 112)",
+                  borderRadius:'5px',
                     cursor: 'pointer',
                 }}
             >
