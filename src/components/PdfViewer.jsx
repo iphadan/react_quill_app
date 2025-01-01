@@ -28,7 +28,7 @@ function PdfViewer({ file,uploadedFile }) {
     const zoomPluginInstance = zoomPlugin();
 
 
-// -------------------------------
+
 
 
 const pageNavigationPluginInstance = pageNavigationPlugin();
@@ -107,7 +107,7 @@ const changePage = (direction) => {
     
         const adjustedY = y - cumulativeHeight;
 
-        if(x < 382 ||  x > 1000){
+        if(x < 430 ||  x > 900){
 setIsAddingTextBox(false)         
    return;
 
@@ -118,10 +118,10 @@ setIsAddingTextBox(false)
             element: 'text',
             position: { top: adjustedY, left: x  },
             size: { width: 224, height: 185 },
-            text: 'Edit text',
+            text: textBox == null ? '<p><span style="background-color: rgb(0, 0, 0); color: rgb(0, 138, 0);">type here</span></p>':textBox.content,
             options: [],
             pageNumber,
-            content: '<p><span style="background-color: rgb(255, 255, 0); color: rgb(0, 138, 0);">type here</span></p>',
+            content: '<p><span style="background-color: rgb(0, 0, 0); color: rgb(0, 138, 0);">type here</span></p>',
             delta: generateDelta('<p><span style="background-color: rgb(0, 0, 0); color: rgb(0, 138, 0);">type here</span></p>'),
         };
     
